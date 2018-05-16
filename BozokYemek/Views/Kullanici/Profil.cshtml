@@ -1,0 +1,82 @@
+﻿@using BozokYemek.Models.Kullanici
+@model ProfilModel
+
+@{
+    ViewBag.Title = string.Format("{0} {1}", Model.Kullanici.Adi, Model.Kullanici.Soyadi);
+    Layout = "~/Views/Shared/_LayoutGirisKayitOl.cshtml";
+
+    var kullanici = (BozokYemek.Deytabeyz.Kullanici)Session["GirisYapanKullanici"];
+}
+
+<h2>@string.Format("{0} {1}", Model.Kullanici.Adi, Model.Kullanici.Soyadi)</h2>
+
+<div class="text-right">
+    <a href="@Url.Action("Index", "Home")" class="btn btn-primary">
+        <span class="fa fa-home"></span>
+        Anasayfa
+    </a>
+</div>
+
+<hr />
+
+<div class="row">
+
+    <div class="col-md-4 text-center">
+        <img src="~/@Model.Kullanici.Resim" class="rounded-circle img-fluid img-thumbnail" width="192">
+    </div>
+
+    <div class="col-md-8">
+        <div class="form-group row">
+            <label class="text-danger col-md-2">Ad :</label>
+            <label class="col-md-8">@Model.Kullanici.Adi</label>
+        </div>
+
+        <div class="form-group row">
+            <label class="text-danger col-md-2">Soyad :</label>
+            <label class="col-md-8">@Model.Kullanici.Soyadi</label>
+        </div>
+
+        <div class="form-group row">
+            <label class="text-danger col-md-2">E-posta :</label>
+            <label class="col-md-8">@Model.Kullanici.Eposta</label>
+        </div>
+
+        <div class="form-group row">
+            <label class="text-danger col-md-2">Kayit Tarihi :</label>
+            <label class="col-md-8">@Model.Kullanici.EklemeTarihi</label>
+        </div>
+
+        <div class="form-group row">
+            <label class="text-danger col-md-2"> Biyografi :</label>
+            <label class="col-md-8">@Model.Kullanici.Biyografi</label>
+        </div>
+
+    </div>
+</div>
+
+@if (Session["GirisYapanKullanici"] != null && kullanici.Id == Model.Kullanici.Id)
+{
+    <div class="row">
+        <div class="col-md-12 text-right">
+
+            <a href="@Url.Action("ProfilDuzenle", "Kullanici", new { id = Model.Kullanici.Id})" class="btn btn-primary">
+                <span class="fa fa-edit"></span>
+                Düzenle
+            </a>
+            <button type="button" onclick="ProfilSil('@Url.Action("ProfilSil","Kullanici", new { id=kullanici.Id})')" class="btn btn-danger">
+                <span class="fa fa-trash"></span>
+                Sil
+            </button>
+
+        </div>
+    </div>
+}
+
+
+<script>
+    function ProfilSil(url) {
+        if (confirm("profili silmek istediginize emin misiniz?")) {
+            location.href = url;
+        }
+    }
+</script>

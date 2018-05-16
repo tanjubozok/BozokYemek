@@ -1,0 +1,6 @@
+﻿
+@using (Html.BeginForm("MantiArama", "Home", FormMethod.Get))
+{
+    @Html.TextBox("q", null, new { type = "search", placeholder = "arama yap...", id = "search-anything" })
+    <input type="submit" value="" class="d-none">
+}

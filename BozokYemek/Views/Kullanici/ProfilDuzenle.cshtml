@@ -1,0 +1,84 @@
+﻿@*@model BozokYemek.Deytabeyz.Kullanici*@
+@using BozokYemek.Models.Kullanici
+@model ProfilModel
+
+@{
+    ViewBag.Title = "ProfilDuzenle";
+    Layout = "~/Views/Shared/_LayoutGirisKayitOl.cshtml";
+}
+
+<h2>ProfilDuzenle</h2>
+
+@using (Html.BeginForm("ProfilDuzenle", "Kullanici", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Kullanici.Id)
+
+        <div class="form-group">
+            @Html.Label("Adi", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Kullanici.Adi, new { @class = "form-control", required = "required" })
+                @Html.ValidationMessageFor(model => model.Kullanici.Adi, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Soyadi", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Kullanici.Soyadi, new { @class = "form-control", required = "required" })
+                @Html.ValidationMessageFor(model => model.Kullanici.Soyadi, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Sifre", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Kullanici.Sifre, new { @class = "form-control", required = "required", type = "password" })
+                @Html.ValidationMessageFor(model => model.Kullanici.Sifre, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Eposta", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Kullanici.Eposta, new { @class = "form-control", required = "required", type = "email" })
+                @Html.ValidationMessageFor(model => model.Kullanici.Eposta, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Biyografi", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Kullanici.Biyografi, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Kullanici.Biyografi, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Resim", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="file" name="Resim" value="Resim" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+
+                <button type="submit" class="btn btn-success">
+                    <span class="fa fa-save"></span>
+                    Kaydet
+                </button>
+
+                <a href="@Url.Action("Profil", "Kullanici")" class="btn btn-default">
+                    <span class="fa fa-arrow-circle-left"></span>
+                    Profil Sayfasina Don
+                </a>
+
+            </div>
+        </div>
+    </div>
+}

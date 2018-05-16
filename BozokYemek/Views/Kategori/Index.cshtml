@@ -1,0 +1,56 @@
+﻿@model IEnumerable<BozokYemek.Deytabeyz.Kategori>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Kategori Listesi</h2>
+
+<p>
+    <a href="@Url.Action("Edit","Kategori", new { id=0})" class="btn btn-primary">
+        <span class="fa fa-plus"></span>
+        Kategori Ekle
+    </a>
+</p>
+
+<table class="table table-hover table-striped">
+    <tr>
+        <th>
+            @Html.DisplayName("Kategori Adi")
+        </th>
+
+
+        <th>
+            @Html.DisplayName("Islem Sec")
+
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Adi)
+            </td>
+
+            <td>
+                <a href="@Url.Action("Edit","Kategori", new { id=item.Id})" class="btn btn-warning btn-xs"><span class="fa fa-edit"></span></a>
+                <button type="button" onclick="KategoriSil('@Url.Action("Delete", "Kategori", new { id = item.Id })')" class="btn btn-danger btn-xs">
+                    <span class="fa fa-trash"></span>
+                </button>
+
+            </td>
+        </tr>
+    }
+</table>
+
+
+
+<script>
+    function KategoriSil(url) {
+        if (confirm("silmek istediginize emin misiniz?")) {
+            location.href = url;
+        }
+    }
+</script>

@@ -1,0 +1,84 @@
+﻿@model IEnumerable<BozokYemek.Deytabeyz.Kullanici>
+
+@{
+    ViewBag.Title = "KUllanicilar";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Kullanicilar Listesi</h2>
+
+<p>
+    <a href="@Url.Action("Kayit Ol","Kullanici")" class="btn btn-primary">
+        <span class="fa fa-plus"></span>
+        Ekle
+    </a>
+</p>
+
+<table class="table table-striped table-hover">
+    <tr>
+        <th>
+            @Html.DisplayName("Adi")
+        </th>
+        <th>
+            @Html.DisplayName("Soyadi")
+        </th>
+        <th>
+            @Html.DisplayName("Sifre")
+        </th>
+        <th>
+            @Html.DisplayName("Eposta")
+        </th>
+
+        <th>
+            @Html.DisplayName("Kullanici Tipi")
+        </th>
+        <th>
+            @Html.DisplayName("Resim")
+        </th>
+
+        <th>
+            @Html.DisplayName("Islem Sec")
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Adi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Soyadi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sifre, new { type = "password" })
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Eposta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KullaniciTipi)
+            </td>
+            <td>
+                <img src="~/@item.Resim" alt="@item.Adi" width="36" />
+            </td>
+            <td>
+                <a href="@Url.Action("ProfilDuzenle","Kullanici", new { id=item.Id})" class="btn btn-warning btn-xs">
+                    <span class="fa fa-edit"></span>
+                </a>
+                <button type="button" onclick="@Url.Action("ProfilSil","Kullanici", new { id=item.Id})" class="btn btn-danger btn-xs">
+                    <span class="fa fa-trash-o"></span>
+                </button>
+            </td>
+        </tr>
+    }
+
+</table>
+
+<script>
+    function ProfilSil(url) {
+        if (confirm("profili silmek istediginize emin misiniz?")) {
+            location.href = url;
+        }
+    }
+</script>

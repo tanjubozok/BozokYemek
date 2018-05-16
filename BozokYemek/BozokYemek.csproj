@@ -1,0 +1,371 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.8.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.8.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{08F5F15B-5DA4-4165-93EB-793355D80CF8}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BozokYemek</RootNamespace>
+    <AssemblyName>BozokYemek</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.6\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.6\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AdminContext\Admin\AdminLTE.min.css" />
+    <Content Include="AdminContext\Admin\adminlte.min.js" />
+    <Content Include="AdminContext\Admin\bootstrap.min.css" />
+    <Content Include="AdminContext\Admin\bootstrap.min.js" />
+    <Content Include="AdminContext\Admin\ionicons.min.css" />
+    <Content Include="AdminContext\Admin\jquery.min.js" />
+    <Content Include="AdminContext\Admin\skin-blue.min.css" />
+    <Content Include="AdminContext\css\bootstrap\bootstrap.min.css" />
+    <Content Include="AdminContext\css\others\animate.css" />
+    <Content Include="AdminContext\css\others\font-awesome.min.css" />
+    <Content Include="AdminContext\css\others\magnific-popup.css" />
+    <Content Include="AdminContext\css\others\meanmenu.min.css" />
+    <Content Include="AdminContext\css\others\owl.carousel.min.css" />
+    <Content Include="AdminContext\css\others\pe-icon-7-stroke.css" />
+    <Content Include="AdminContext\css\responsive\responsive.css" />
+    <Content Include="AdminContext\fonts\fontawesome-webfont.svg" />
+    <Content Include="AdminContext\fonts\Pe-icon-7-stroke.svg" />
+    <Content Include="AdminContext\img\about-img\1.jpg" />
+    <Content Include="AdminContext\img\bg-img\bg-pattern.jpg" />
+    <Content Include="AdminContext\img\bg-img\breadcumb.jpg" />
+    <Content Include="AdminContext\img\bg-img\contact.jpg" />
+    <Content Include="AdminContext\img\bg-img\slide-1.jpg" />
+    <Content Include="AdminContext\img\bg-img\slide-2.jpg" />
+    <Content Include="AdminContext\img\bg-img\slide-3.jpg" />
+    <Content Include="AdminContext\img\bg-img\slide-4.jpg" />
+    <Content Include="AdminContext\img\blog-img\1.jpg" />
+    <Content Include="AdminContext\img\blog-img\10.jpg" />
+    <Content Include="AdminContext\img\blog-img\11.jpg" />
+    <Content Include="AdminContext\img\blog-img\12.jpg" />
+    <Content Include="AdminContext\img\blog-img\13.jpg" />
+    <Content Include="AdminContext\img\blog-img\14.jpg" />
+    <Content Include="AdminContext\img\blog-img\15.jpg" />
+    <Content Include="AdminContext\img\blog-img\16.jpg" />
+    <Content Include="AdminContext\img\blog-img\17.jpg" />
+    <Content Include="AdminContext\img\blog-img\18.jpg" />
+    <Content Include="AdminContext\img\blog-img\19.jpg" />
+    <Content Include="AdminContext\img\blog-img\2.jpg" />
+    <Content Include="AdminContext\img\blog-img\3.jpg" />
+    <Content Include="AdminContext\img\blog-img\4.jpg" />
+    <Content Include="AdminContext\img\blog-img\5.jpg" />
+    <Content Include="AdminContext\img\blog-img\6.jpg" />
+    <Content Include="AdminContext\img\blog-img\7.jpg" />
+    <Content Include="AdminContext\img\blog-img\8.jpg" />
+    <Content Include="AdminContext\img\blog-img\9.jpg" />
+    <Content Include="AdminContext\img\catagory-img\1.jpg" />
+    <Content Include="AdminContext\img\catagory-img\2.jpg" />
+    <Content Include="AdminContext\img\catagory-img\3.jpg" />
+    <Content Include="AdminContext\img\core-img\back.png" />
+    <Content Include="AdminContext\img\core-img\favicon.ico" />
+    <Content Include="AdminContext\img\core-img\map.png" />
+    <Content Include="AdminContext\img\core-img\next.png" />
+    <Content Include="AdminContext\img\instagram-img\1.jpg" />
+    <Content Include="AdminContext\img\instagram-img\2.jpg" />
+    <Content Include="AdminContext\img\instagram-img\3.jpg" />
+    <Content Include="AdminContext\img\instagram-img\4.jpg" />
+    <Content Include="AdminContext\img\instagram-img\5.jpg" />
+    <Content Include="AdminContext\img\instagram-img\6.jpg" />
+    <Content Include="AdminContext\img\sidebar-img\1.jpg" />
+    <Content Include="AdminContext\img\sidebar-img\2.jpg" />
+    <Content Include="AdminContext\img\sidebar-img\3.jpg" />
+    <Content Include="AdminContext\img\sidebar-img\4.jpg" />
+    <Content Include="AdminContext\img\sidebar-img\5.jpg" />
+    <Content Include="AdminContext\img\sidebar-img\6.jpg" />
+    <Content Include="AdminContext\js\active.js" />
+    <Content Include="AdminContext\js\bootstrap\bootstrap.min.js" />
+    <Content Include="AdminContext\js\bootstrap\popper.min.js" />
+    <Content Include="AdminContext\js\google-map\map-active.js" />
+    <Content Include="AdminContext\js\jquery\jquery-2.2.4.min.js" />
+    <Content Include="AdminContext\js\others\plugins.js" />
+    <Content Include="AdminContext\style.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Deytabeyz\BozokMantiModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BozokMantiModel.edmx</DependentUpon>
+      <LastGenOutput>BozokMantiModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Deytabeyz\BozokMantiModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BozokMantiModel.edmx</DependentUpon>
+      <LastGenOutput>BozokMantiModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <EntityDeploy Include="Deytabeyz\BozokMantiModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>BozokMantiModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Deytabeyz\BozokMantiModel.edmx.diagram">
+      <DependentUpon>BozokMantiModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="AdminContext\fonts\fontawesome-webfont.eot" />
+    <Content Include="AdminContext\fonts\fontawesome-webfont.ttf" />
+    <Content Include="AdminContext\fonts\fontawesome-webfont.woff" />
+    <Content Include="AdminContext\fonts\fontawesome-webfont.woff2" />
+    <Content Include="AdminContext\fonts\FontAwesome.otf" />
+    <Content Include="AdminContext\fonts\Pe-icon-7-stroke.eot" />
+    <Content Include="AdminContext\fonts\Pe-icon-7-stroke.ttf" />
+    <Content Include="AdminContext\fonts\Pe-icon-7-stroke.woff" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Resim\manti-1.png" />
+    <Content Include="Resim\Profil\DarthVader.png" />
+    <Content Include="Resim\manti.png" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KategoriController.cs" />
+    <Compile Include="Controllers\KullaniciController.cs" />
+    <Compile Include="Controllers\MantiController.cs" />
+    <Compile Include="Deytabeyz\BozokMantiModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BozokMantiModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Deytabeyz\BozokMantiModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BozokMantiModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Deytabeyz\BozokMantiModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BozokMantiModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Deytabeyz\Kategori.cs">
+      <DependentUpon>BozokMantiModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Deytabeyz\Kullanici.cs">
+      <DependentUpon>BozokMantiModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Deytabeyz\KullaniciTipi.cs">
+      <DependentUpon>BozokMantiModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Deytabeyz\Manti.cs">
+      <DependentUpon>BozokMantiModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Deytabeyz\Yorum.cs">
+      <DependentUpon>BozokMantiModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Filtre\OturumKontrol.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Index\IndexModel.cs" />
+    <Compile Include="Models\Index\KategorileriGetirModel.cs" />
+    <Compile Include="Models\Index\MantiGetirModel.cs" />
+    <Compile Include="Models\Index\MantiYorumModel.cs" />
+    <Compile Include="Models\Kategori\IndexModel.cs" />
+    <Compile Include="Models\Kullanici\GirisModel.cs" />
+    <Compile Include="Models\Kullanici\KayitOlModel.cs" />
+    <Compile Include="Models\Kullanici\ProfilModel.cs" />
+    <Compile Include="MyMail.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <None Include="packages.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
+    <Content Include="Views\Kategori\Index.cshtml" />
+    <Content Include="Views\Kategori\Edit.cshtml" />
+    <Content Include="Views\Manti\Index.cshtml" />
+    <Content Include="Views\Manti\Edit.cshtml" />
+    <Content Include="Views\Kullanici\Index.cshtml" />
+    <Content Include="Views\Kullanici\KayitOl.cshtml" />
+    <Content Include="Views\Shared\_LayoutGirisKayitOl.cshtml" />
+    <Content Include="Views\Kullanici\Giris.cshtml" />
+    <Content Include="Views\Kullanici\SifremiUnuttum.cshtml" />
+    <Content Include="Views\Kullanici\Profil.cshtml" />
+    <Content Include="Views\Kullanici\ProfilDuzenle.cshtml" />
+    <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Views\Home\Hakkimizda.cshtml" />
+    <Content Include="Views\Home\Iletisim.cshtml" />
+    <Content Include="Views\Home\Kategoriler.cshtml" />
+    <Content Include="Views\Shared\_LayoutMantiGetir.cshtml" />
+    <Content Include="Views\Home\MantiGetir.cshtml" />
+    <Content Include="Views\Shared\_PartialMantiAra.cshtml" />
+    <Content Include="Views\Home\KategoriMantiGetir.cshtml" />
+    <Content Include="Views\Shared\_PartialMantiYorum.cshtml" />
+    <Content Include="Views\Shared\_PartialMantilar.cshtml" />
+    <Content Include="Views\Home\NavbarKategori.cshtml" />
+    <Content Include="Views\Home\Slayt.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Resim\Yemek\" />
+    <Folder Include="Views\Base\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>1930</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:1930/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.8.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.8.0\build\Microsoft.Net.Compilers.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

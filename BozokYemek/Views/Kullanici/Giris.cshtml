@@ -1,0 +1,70 @@
+﻿@using BozokYemek.Models.Kullanici
+@model GirisModel
+
+@{
+    ViewBag.Title = "Giris";
+    Layout = "~/Views/Shared/_LayoutGirisKayitOl.cshtml";
+}
+
+<div class="contact-form-area">
+    <div class="row">
+
+        <div class="col-12 col-md-5">
+            <div>
+                <img src="~/AdminContext/img/bg-img/contact.jpg" class="contact-form-sidebar item wow fadeInUpBig" data-wow-delay="0.3s" />
+            </div>
+        </div>
+
+        <div class="col-12 col-md-7 item">
+            <div class="contact-form wow fadeInUpBig" data-wow-delay="0.6s">
+                <h2 class="contact-form-title mb-30">
+                    <div class="text-center">Manti Sitesi !</div>
+                    <div class="text-center">giris sayfasina hosgeldiniz</div>
+                    @if (ViewBag.GirisHata != null && string.IsNullOrEmpty((string)ViewBag.GirisHata) == false)
+                    {
+                        <span class="text-danger">@ViewBag.GirisHata</span>
+                    }
+                </h2>
+
+                @using (Html.BeginForm())
+                {
+                    <div class="form-group">
+                        @Html.TextBoxFor(model => model.Kullanici.Eposta, new { @class = "form-control", type = "email", placeholder = "eposta adresi", required = "required" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.PasswordFor(model => model.Kullanici.Sifre, new { @class = "form-control", type = "password", placeholder = "sifre", required = "required" })
+                    </div>
+
+                    <div class="form-group">
+
+                        <button type="submit" class="btn btn-success pull-right">
+                            <span class="fa fa-map-signs"></span>
+                            Giris Yap
+                        </button>
+
+                        <a href="@Url.Action("SifremiUnuttum","Kullanici")" class="btn btn-primary">
+                            <span class="fa fa-first-order"></span>
+                            Sifremi Unuttum
+                        </a>
+
+                        <hr />
+
+                        <a href="@Url.Action("Index","Home")" class="btn btn-default">
+                            <span class="fa fa-home"></span>
+                            Anasayfa
+                        </a>
+
+                        <a href="@Url.Action("KayitOl","Kullanici")" class="btn btn-default">
+                            <span class="fa fa-sign-in"></span>
+                            Kayit Ol
+                        </a>
+
+
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+</div>

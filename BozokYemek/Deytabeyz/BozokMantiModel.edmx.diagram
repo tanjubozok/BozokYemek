@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a60f6155035645dda877691dc729d022" Name="Diagram1" ZoomLevel="98" ShowGrid="true" DisplayType="true">
+        <EntityTypeShape EntityType="BozokMantiDBModel.Kategori" Width="2.375" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BozokMantiDBModel.Kullanici" Width="2.375" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BozokMantiDBModel.Yorum" Width="2.375" PointX="7.625" PointY="1.5" IsExpanded="true" />
+        <AssociationConnector Association="BozokMantiDBModel.FK_Yorum_Kullanici" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="BozokMantiDBModel.Manti" Width="2.375" PointX="4.375" PointY="2.125" />
+        <AssociationConnector Association="BozokMantiDBModel.FK_Manti_Kategori" />
+        <AssociationConnector Association="BozokMantiDBModel.FK_Manti_Kullanici" />
+        <AssociationConnector Association="BozokMantiDBModel.FK_Yorum_Manti" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

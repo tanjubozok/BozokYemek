@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BozokMantiDBModelStoreContainer" CdmEntityContainer="BozokMantiDBEntities">
+    <EntitySetMapping Name="Kategori">
+      <EntityTypeMapping TypeName="BozokMantiDBModel.Kategori">
+        <MappingFragment StoreEntitySet="Kategori">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Adi" ColumnName="Adi" />
+          <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+          <ScalarProperty Name="EklemeTarihi" ColumnName="EklemeTarihi" />
+          <ScalarProperty Name="DegistirmeTarihi" ColumnName="DegistirmeTarihi" />
+          <ScalarProperty Name="Silme" ColumnName="Silme" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kullanici">
+      <EntityTypeMapping TypeName="BozokMantiDBModel.Kullanici">
+        <MappingFragment StoreEntitySet="Kullanici">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Adi" ColumnName="Adi" />
+          <ScalarProperty Name="Soyadi" ColumnName="Soyadi" />
+          <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+          <ScalarProperty Name="Eposta" ColumnName="Eposta" />
+          <ScalarProperty Name="Biyografi" ColumnName="Biyografi" />
+          <ScalarProperty Name="EklemeTarihi" ColumnName="EklemeTarihi" />
+          <ScalarProperty Name="DegistirmeTarihi" ColumnName="DegistirmeTarihi" />
+          <ScalarProperty Name="KullaniciTipi" ColumnName="KullaniciTipi" />
+          <ScalarProperty Name="Silme" ColumnName="Silme" />
+          <ScalarProperty Name="Resim" ColumnName="Resim" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Yorum">
+      <EntityTypeMapping TypeName="BozokMantiDBModel.Yorum">
+        <MappingFragment StoreEntitySet="Yorum">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Yazi" ColumnName="Yazi" />
+          <ScalarProperty Name="EklemeTarihi" ColumnName="EklemeTarihi" />
+          <ScalarProperty Name="DegistirmeTarihi" ColumnName="DegistirmeTarihi" />
+          <ScalarProperty Name="Silme" ColumnName="Silme" />
+          <ScalarProperty Name="KullaniciId" ColumnName="KullaniciId" />
+          <ScalarProperty Name="MantiId" ColumnName="MantiId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Manti">
+      <EntityTypeMapping TypeName="BozokMantiDBModel.Manti">
+        <MappingFragment StoreEntitySet="Manti">
+          <ScalarProperty Name="KullaniciId" ColumnName="KullaniciId" />
+          <ScalarProperty Name="Resim" ColumnName="Resim" />
+          <ScalarProperty Name="KategoriId" ColumnName="KategoriId" />
+          <ScalarProperty Name="Silme" ColumnName="Silme" />
+          <ScalarProperty Name="DegistirmeTarihi" ColumnName="DegistirmeTarihi" />
+          <ScalarProperty Name="EklemeTarihi" ColumnName="EklemeTarihi" />
+          <ScalarProperty Name="Malzeme" ColumnName="Malzeme" />
+          <ScalarProperty Name="PisirmeSuresi" ColumnName="PisirmeSuresi" />
+          <ScalarProperty Name="HazirlamaSuresi" ColumnName="HazirlamaSuresi" />
+          <ScalarProperty Name="KacKisilik" ColumnName="KacKisilik" />
+          <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+          <ScalarProperty Name="Baslik" ColumnName="Baslik" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

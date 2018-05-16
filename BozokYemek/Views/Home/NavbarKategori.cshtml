@@ -1,0 +1,23 @@
+﻿
+@model List<BozokYemek.Deytabeyz.Kategori>
+
+<li class="nav-item dropdown">
+
+    <a class="nav-link dropdown-toggle" href="#" id="yummyDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span class="fa fa-th-list"></span>
+        Kategoriler
+    </a>
+
+    <div class="dropdown-menu" aria-labelledby="yummyDropdown">
+
+        @foreach (var item in Model)
+        {
+            <a class="dropdown-item" href="@Url.Action("KategoriMantiGetir","Home", new { id=item.Id})">
+                <span class="fa fa-list-alt"></span>
+                @item.Adi
+            </a>
+        }
+
+    </div>
+
+</li>

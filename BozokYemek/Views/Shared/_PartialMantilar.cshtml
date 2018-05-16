@@ -1,0 +1,52 @@
+﻿@model BozokYemek.Deytabeyz.Manti
+
+@{
+    ViewBag.Title = "MantiGetir";
+
+    var kullanici = (BozokYemek.Deytabeyz.Kullanici)Session["GirisYapanKullanici"];
+}
+
+<div class="col-10 col-sm-11">
+    <div class="single-post">
+        <div class="post-thumb">
+            <img src="~/@Model.Resim" width="669">
+        </div>
+
+        <div class="post-content">
+            <div class="post-meta d-flex">
+                <div class="post-author-date-area d-flex">
+                    <div class="post-author">
+                        <a href="#">@string.Format("{0} {1}", Model.Kullanici.Adi, Model.Kullanici.Soyadi)</a>
+                    </div>
+                    <div class="post-date">
+                        <span class="fa fa-clock-o"></span>
+                        <span>@Model.EklemeTarihi</span>
+                    </div>
+                </div>
+                <div class="post-comment-share-area d-flex">
+                    <div class="post-favourite">
+                        <i class="fa fa-users" aria-hidden="true"></i>
+                        @Model.KacKisilik
+                    </div>&nbsp;&nbsp;&nbsp;
+                    <div class="post-comments">
+                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                        @Model.HazirlamaSuresi
+                    </div>&nbsp;&nbsp;&nbsp;
+                    <div class="post-share">
+                        <i class="fa fa-cutlery" aria-hidden="true"></i>
+                        @Model.PisirmeSuresi
+                    </div>
+                </div>
+            </div>
+
+            <a href="#">
+                <h2 class="post-headline">@Model.Baslik</h2>
+            </a>
+            <p>@Model.Aciklama </p>
+
+            <h4>Malzemeler</h4>
+            <p>@Model.Malzeme </p>
+
+        </div>
+    </div>
+</div>

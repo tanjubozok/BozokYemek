@@ -1,0 +1,77 @@
+﻿@model IEnumerable<BozokYemek.Deytabeyz.Manti>
+
+@{
+    ViewBag.Title = "Yemek";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+
+}
+
+<h2>Yemek</h2>
+
+<p>
+    <a href="@Url.Action("Edit","Manti", new { id=0})" class="btn btn-primary">
+        <span class="fa fa-plus"></span>
+        Ekle
+    </a>
+</p>
+
+<table class="table table-striped table-hover">
+    <tr>
+        <th>
+            @Html.DisplayName("Yemek Adi")
+        </th>
+
+        <th>
+            @Html.DisplayName("Yemek Resmi")
+        </th>
+
+        <th>
+            @Html.DisplayName("Kategorisi")
+        </th>
+
+        <th>
+            @Html.DisplayName("Yemek Ekleyen Kisi")
+        </th>
+
+        <th>
+            @Html.DisplayName("Yemek Islem Sec")
+
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Baslik)
+            </td>
+            <td>
+                <img src="~/@item.Resim" alt="@item.Baslik" width="36"/>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kategori.Adi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kullanici.Adi)
+            </td>
+            <td>
+                <a href="@Url.Action("Edit","Manti", new { id=item.Id})" class="btn btn-warning btn-xs">
+                    <span class="fa fa-edit"></span>
+                </a>
+
+                <button type="button" onclick="('@Url.Action("Delete","Manti", new { id=item.Id})')" class="btn btn-danger btn-xs">
+                    <span class="fa fa-trash-o"></span>
+                </button>
+            </td>
+        </tr>
+    }
+
+</table>
+
+<script>
+    function MantiSil(url) {
+        if (confirm("urunu silmek istediginize emin misiniz?")) {
+            location.href = url;
+        }
+    }
+</script>

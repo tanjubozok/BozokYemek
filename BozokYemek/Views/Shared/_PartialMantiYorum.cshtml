@@ -1,0 +1,56 @@
+﻿
+@using BozokYemek.Models.Index
+@model MantiYorumModel
+
+@{
+    var kullanici = (BozokYemek.Deytabeyz.Kullanici)Session["GirisYapanKullanici"];
+}
+
+
+<div class="container">
+    <h4 class="mb-30">Yorumlar</h4>
+
+    @foreach (var item in Model.Yorum.OrderByDescending(x => x.EklemeTarihi).ToList())
+    {
+        <ol>
+            <li class="single_comment_area">
+                <div class="comment-wrapper d-flex">
+                    <div class="comment-author">
+                        <img src="~/@item.Kullanici.Resim" alt="">
+                    </div>
+                    <div class="comment-content">
+                        <span class="comment-date text-muted">@item.EklemeTarihi</span>
+                        <h5>@(string.Format("{0} {1}", item.Kullanici.Adi, item.Kullanici.Soyadi))</h5>
+                        <p>@item.Yazi</p>
+                    </div>
+                </div>
+            </li>
+        </ol>
+    }
+
+</div>
+
+@if (kullanici != null)
+{
+    <div class="container">
+        <div class="comment-form">
+            <h4 class="mb-30">Yorum Yaz</h4>
+            @using (Html.BeginForm("MantiGetir", "Home", FormMethod.Post))
+            {
+                @Html.Hidden("MantiId", Model.Manti.Id);
+
+                <div class="form-group">
+                    <textarea id="Yazi" name="Yazi" class="form-control" placeholder="Yorumunuz..." required="required"></textarea>
+                </div>
+
+                <button type="submit" class="btn contact-btn">
+                    <span class="fa fa-send"></span>
+                    Mesaj Gonder
+                </button>
+            }
+        </div>
+    </div>
+}
+
+
+

@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BozokMantiDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Kategori">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Adi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Aciklama" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="EklemeTarihi" Type="DateTime" Precision="3" />
+    <Property Name="DegistirmeTarihi" Type="DateTime" Precision="3" />
+    <Property Name="Silme" Type="Boolean" />
+    <NavigationProperty Name="Manti" Relationship="BozokMantiDBModel.FK_Manti_Kategori" FromRole="Kategori" ToRole="Manti" />
+  </EntityType>
+  <EntityType Name="Kullanici">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Adi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Soyadi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Sifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Eposta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Biyografi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EklemeTarihi" Type="DateTime" Precision="3" />
+    <Property Name="DegistirmeTarihi" Type="DateTime" Precision="3" />
+    <Property Name="KullaniciTipi" Type="BozokMantiDBModel.KullaniciTipi" />
+    <Property Name="Silme" Type="Boolean" />
+    <Property Name="Resim" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Yorum" Relationship="Self.FK_Yorum_Kullanici" FromRole="Kullanici" ToRole="Yorum" />
+    <NavigationProperty Name="Manti" Relationship="BozokMantiDBModel.FK_Manti_Kullanici" FromRole="Kullanici" ToRole="Manti" />
+  </EntityType>
+  <EntityType Name="Yorum">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Yazi" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="EklemeTarihi" Type="DateTime" Precision="3" />
+    <Property Name="DegistirmeTarihi" Type="DateTime" Precision="3" />
+    <Property Name="Silme" Type="Boolean" />
+    <Property Name="KullaniciId" Type="Int32" />
+    <Property Name="MantiId" Type="Int32" />
+    <NavigationProperty Name="Kullanici" Relationship="Self.FK_Yorum_Kullanici" FromRole="Yorum" ToRole="Kullanici" />
+    <NavigationProperty Name="Manti" Relationship="BozokMantiDBModel.FK_Yorum_Manti" FromRole="Yorum" ToRole="Manti" />
+  </EntityType>
+  <Association Name="FK_Yorum_Kullanici">
+    <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="0..1" />
+    <End Role="Yorum" Type="Self.Yorum" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kullanici">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Yorum">
+        <PropertyRef Name="KullaniciId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BozokMantiDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Kategori" EntityType="Self.Kategori" />
+    <EntitySet Name="Kullanici" EntityType="Self.Kullanici" />
+    <EntitySet Name="Yorum" EntityType="Self.Yorum" />
+    <AssociationSet Name="FK_Yorum_Kullanici" Association="Self.FK_Yorum_Kullanici">
+      <End Role="Kullanici" EntitySet="Kullanici" />
+      <End Role="Yorum" EntitySet="Yorum" />
+    </AssociationSet>
+    <EntitySet Name="Manti" EntityType="BozokMantiDBModel.Manti" />
+    <AssociationSet Name="FK_Manti_Kategori" Association="BozokMantiDBModel.FK_Manti_Kategori">
+      <End Role="Kategori" EntitySet="Kategori" />
+      <End Role="Manti" EntitySet="Manti" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Manti_Kullanici" Association="BozokMantiDBModel.FK_Manti_Kullanici">
+      <End Role="Kullanici" EntitySet="Kullanici" />
+      <End Role="Manti" EntitySet="Manti" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Yorum_Manti" Association="BozokMantiDBModel.FK_Yorum_Manti">
+      <End Role="Manti" EntitySet="Manti" />
+      <End Role="Yorum" EntitySet="Yorum" />
+    </AssociationSet>
+  </EntityContainer>
+  <EnumType Name="KullaniciTipi">
+    <Member Name="Musteri" Value="1" />
+    <Member Name="Kullanici" Value="3" />
+    <Member Name="Admin" Value="5" />
+  </EnumType>
+  <EntityType Name="Manti">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Baslik" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Aciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="KacKisilik" Type="Int32" />
+    <Property Name="HazirlamaSuresi" Type="Int32" />
+    <Property Name="PisirmeSuresi" Type="Int32" />
+    <Property Name="Malzeme" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EklemeTarihi" Type="DateTime" Precision="3" />
+    <Property Name="DegistirmeTarihi" Type="DateTime" Precision="3" />
+    <Property Name="Silme" Type="Boolean" />
+    <Property Name="KategoriId" Type="Int32" />
+    <Property Name="Resim" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="KullaniciId" Type="Int32" />
+    <NavigationProperty Name="Kategori" Relationship="BozokMantiDBModel.FK_Manti_Kategori" FromRole="Manti" ToRole="Kategori" />
+    <NavigationProperty Name="Kullanici" Relationship="BozokMantiDBModel.FK_Manti_Kullanici" FromRole="Manti" ToRole="Kullanici" />
+    <NavigationProperty Name="Yorum" Relationship="BozokMantiDBModel.FK_Yorum_Manti" FromRole="Manti" ToRole="Yorum" />
+  </EntityType>
+  <Association Name="FK_Manti_Kategori">
+    <End Type="BozokMantiDBModel.Kategori" Role="Kategori" Multiplicity="0..1" />
+    <End Type="BozokMantiDBModel.Manti" Role="Manti" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kategori">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Manti">
+        <PropertyRef Name="KategoriId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Manti_Kullanici">
+    <End Type="BozokMantiDBModel.Kullanici" Role="Kullanici" Multiplicity="0..1" />
+    <End Type="BozokMantiDBModel.Manti" Role="Manti" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kullanici">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Manti">
+        <PropertyRef Name="KullaniciId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Yorum_Manti">
+    <End Type="BozokMantiDBModel.Manti" Role="Manti" Multiplicity="0..1" />
+    <End Type="BozokMantiDBModel.Yorum" Role="Yorum" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Manti">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Yorum">
+        <PropertyRef Name="MantiId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

@@ -1,0 +1,98 @@
+﻿@model BozokYemek.Deytabeyz.Manti
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Yemek</h2>
+
+@using (Html.BeginForm("Edit", "Manti", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="form-group">
+            @Html.Label("Baslik", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Baslik, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Baslik, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Aciklama", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Aciklama, new { @class = "form-control"})
+                @Html.ValidationMessageFor(model => model.Aciklama, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Kac Kisilik", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.KacKisilik, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.KacKisilik, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Hazirlama Suresi", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.HazirlamaSuresi, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.HazirlamaSuresi, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Pisirme Suresi", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.PisirmeSuresi, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.PisirmeSuresi, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Yemek Malzemeleri", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Malzeme, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Malzeme, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Yemek Kategorisi", "KategoriId", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("KategoriId", (List<SelectListItem>)ViewBag.KategoriGonder, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.KategoriId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Yemek Resimi", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="file" name="Resim" value="Resim" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+
+                <button type="submit" class="btn btn-success">
+                    <span class="fa fa-save"></span>
+                    Kaydet
+                </button>
+
+                <a href="@Url.Action("Index","Manti")" class="btn btn-default">
+                    <span class="fa fa-arrow-circle-left"></span>
+                    Listeye Geri Don
+                </a>
+
+            </div>
+        </div>
+    </div>
+}

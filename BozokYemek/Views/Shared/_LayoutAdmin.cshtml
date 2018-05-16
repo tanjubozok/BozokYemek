@@ -1,0 +1,170 @@
+﻿
+@{
+    var kullanici = (BozokYemek.Deytabeyz.Kullanici)Session["GirisYapanKullanici"];
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>BozokManti Admin | tanjubozok</title>
+
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+    <link href="~/AdminContext/Admin/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/AdminContext/css/others/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/AdminContext/Admin/ionicons.min.css" rel="stylesheet" />
+    <link href="~/AdminContext/Admin/AdminLTE.min.css" rel="stylesheet" />
+    <link href="~/AdminContext/Admin/skin-blue.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+    <script src="~/AdminContext/Admin/jquery.min.js"></script>
+    <script src="~/AdminContext/Admin/bootstrap.min.js"></script>
+    <script src="~/AdminContext/Admin/adminlte.min.js"></script>
+    <script src="~/ckeditor/ckeditor.js"></script>
+
+</head>
+
+@if (kullanici != null)
+{
+    <body class="hold-transition skin-blue sidebar-mini">
+        <div class="wrapper">
+
+            <header class="main-header">
+                <a href="@Url.Action("Index", "Kategori")" class="logo">
+                    <span class="logo-mini"><b>B</b>ZK</span>
+                    <span class="logo-lg"><b>Bozok</b>Manti</span>
+                </a>
+                <nav class="navbar navbar-static-top" role="navigation">
+                    <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+                        <span class="sr-only">Toggle navigation</span>
+                    </a>
+                    <div class="navbar-custom-menu">
+                        <ul class="nav navbar-nav">
+
+                            <li>
+                                <a href="@Url.Action("Index","Home")">
+                                    <span class="fa fa-home"></span>
+                                    Anasayfa
+                                </a>
+                            </li>
+
+                            <li class="dropdown user user-menu">
+                                <a href="@Url.Action("Profil", "Kullanici")" class="dropdown-toggle" data-toggle="dropdown">
+                                    <img src="~/@kullanici.Resim" class="user-image">
+                                    <span class="hidden-xs">@string.Format("{0} {1}", kullanici.Adi, kullanici.Soyadi)</span>
+                                </a>
+                                <ul class="dropdown-menu">
+
+                                    <li class="user-header">
+                                        <img src="~/@kullanici.Resim" class="img-circle" alt="User Image">
+                                        <p>
+                                            @string.Format("{0} {1}", kullanici.Adi, kullanici.Soyadi)
+                                            <small>kayit tarihi. @kullanici.EklemeTarihi</small>
+                                        </p>
+                                    </li>
+
+
+
+                                    <li class="user-footer">
+                                        <div class="pull-left">
+                                            <a href="@Url.Action("Profil", "Kullanici")" class="btn btn-default btn-flat">
+                                                Profil
+                                            </a>
+                                        </div>
+                                        <div class="pull-right">
+                                            <a href="@Url.Action("Cikis", "Kullanici")" class="btn btn-default btn-flat">
+                                                Cikis
+                                            </a>
+                                        </div>
+                                    </li>
+
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </div>
+                </nav>
+            </header>
+
+            <aside class="main-sidebar">
+                <section class="sidebar">
+
+                    <div class="user-panel">
+                        <div class="pull-left image">
+                            <img src="~/@kullanici.Resim" class="img-circle" alt="@kullanici.Adi">
+                        </div>
+                        <div class="pull-left info">
+                            <p>@string.Format("{0} {1}", kullanici.Adi, kullanici.Soyadi)</p>
+                            <a href="@Url.Action("Profil", "Kullanici")">
+                                <i class="fa fa-circle text-success"></i>
+                                icerde
+                            </a>
+                        </div>
+                    </div>
+
+
+
+                    <ul class="sidebar-menu" data-widget="tree">
+
+                        <li class="header">AdminKontrol</li>
+
+                        <li>
+                            <a href="@Url.Action("Index", "Kategori")">
+                                <i class="fa fa-list"></i> <span>
+                                    Kategori
+                                </span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="@Url.Action("Index", "Manti")">
+                                <i class="fa fa-flask"></i> <span>
+                                    Manti
+                                </span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="@Url.Action("Index", "Kullanici")">
+                                <i class="fa fa-users"></i> <span>
+                                    Kullanicilar
+                                </span>
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </section>
+            </aside>
+
+            <div class="content-wrapper">
+
+                <section class="content container-fluid">
+
+
+                    @RenderBody()
+
+                </section>
+            </div>
+
+            <footer class="main-footer">
+                <div class="pull-right hidden-xs">
+                    tanjubozok
+                </div>
+                <strong>
+                    Copyright &copy; @DateTime.Now.Year
+                    <a href="https://wwww.tanjubozok.com">
+                        tanjubozok
+                    </a>
+                </strong> tum haklari saklidir.
+            </footer>
+
+        </div>
+    </body>
+}
+
+</html>

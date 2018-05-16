@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BozokMantiDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Kategori">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Adi" Type="nvarchar" MaxLength="50" />
+    <Property Name="Aciklama" Type="nvarchar" MaxLength="500" />
+    <Property Name="EklemeTarihi" Type="datetime" />
+    <Property Name="DegistirmeTarihi" Type="datetime" />
+    <Property Name="Silme" Type="bit" />
+  </EntityType>
+  <EntityType Name="Kullanici">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Adi" Type="nvarchar" MaxLength="50" />
+    <Property Name="Soyadi" Type="nvarchar" MaxLength="50" />
+    <Property Name="Sifre" Type="nvarchar" MaxLength="50" />
+    <Property Name="Eposta" Type="nvarchar" MaxLength="50" />
+    <Property Name="Biyografi" Type="nvarchar" MaxLength="50" />
+    <Property Name="EklemeTarihi" Type="datetime" />
+    <Property Name="DegistirmeTarihi" Type="datetime" />
+    <Property Name="KullaniciTipi" Type="int" />
+    <Property Name="Silme" Type="bit" />
+    <Property Name="Resim" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="Manti">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Baslik" Type="nvarchar" MaxLength="500" />
+    <Property Name="Aciklama" Type="nvarchar(max)" />
+    <Property Name="KacKisilik" Type="int" />
+    <Property Name="HazirlamaSuresi" Type="int" />
+    <Property Name="PisirmeSuresi" Type="int" />
+    <Property Name="Malzeme" Type="nvarchar(max)" />
+    <Property Name="EklemeTarihi" Type="datetime" />
+    <Property Name="DegistirmeTarihi" Type="datetime" />
+    <Property Name="Silme" Type="bit" />
+    <Property Name="KategoriId" Type="int" />
+    <Property Name="Resim" Type="nvarchar" MaxLength="500" />
+    <Property Name="KullaniciId" Type="int" />
+  </EntityType>
+  <EntityType Name="Yorum">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Yazi" Type="nvarchar" MaxLength="500" />
+    <Property Name="EklemeTarihi" Type="datetime" />
+    <Property Name="DegistirmeTarihi" Type="datetime" />
+    <Property Name="Silme" Type="bit" />
+    <Property Name="KullaniciId" Type="int" />
+    <Property Name="MantiId" Type="int" />
+  </EntityType>
+  <Association Name="FK_Manti_Kategori">
+    <End Role="Kategori" Type="Self.Kategori" Multiplicity="0..1" />
+    <End Role="Manti" Type="Self.Manti" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kategori">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Manti">
+        <PropertyRef Name="KategoriId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Manti_Kullanici">
+    <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="0..1" />
+    <End Role="Manti" Type="Self.Manti" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kullanici">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Manti">
+        <PropertyRef Name="KullaniciId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Yorum_Kullanici">
+    <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="0..1" />
+    <End Role="Yorum" Type="Self.Yorum" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kullanici">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Yorum">
+        <PropertyRef Name="KullaniciId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Yorum_Manti">
+    <End Role="Manti" Type="Self.Manti" Multiplicity="0..1" />
+    <End Role="Yorum" Type="Self.Yorum" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Manti">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Yorum">
+        <PropertyRef Name="MantiId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BozokMantiDBModelStoreContainer">
+    <EntitySet Name="Kategori" EntityType="Self.Kategori" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Kullanici" EntityType="Self.Kullanici" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Manti" EntityType="Self.Manti" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Yorum" EntityType="Self.Yorum" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Manti_Kategori" Association="Self.FK_Manti_Kategori">
+      <End Role="Kategori" EntitySet="Kategori" />
+      <End Role="Manti" EntitySet="Manti" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Manti_Kullanici" Association="Self.FK_Manti_Kullanici">
+      <End Role="Kullanici" EntitySet="Kullanici" />
+      <End Role="Manti" EntitySet="Manti" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Yorum_Kullanici" Association="Self.FK_Yorum_Kullanici">
+      <End Role="Kullanici" EntitySet="Kullanici" />
+      <End Role="Yorum" EntitySet="Yorum" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Yorum_Manti" Association="Self.FK_Yorum_Manti">
+      <End Role="Manti" EntitySet="Manti" />
+      <End Role="Yorum" EntitySet="Yorum" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

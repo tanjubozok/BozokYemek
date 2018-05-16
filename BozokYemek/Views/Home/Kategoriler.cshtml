@@ -1,0 +1,22 @@
+﻿@using BozokYemek.Deytabeyz
+@model List<Kategori>
+
+<div class="single-widget-area popular-post-widget">
+
+    <div class="widget-title text-center">
+        <h6>Kategoriler</h6>
+    </div>
+
+    @foreach (var item in Model)
+    {
+        <div class="single-populer-post d-flex">
+            <span class="fa fa-apple"></span>
+            <div class="post-content">
+                <a href="@Url.Action("KategoriMantiGetir","Home", new { id=item.Id})">
+                    <h6>@item.Adi</h6>
+                </a>
+            </div>
+        </div>
+    }
+
+</div>
