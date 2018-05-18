@@ -144,3 +144,4 @@ C:\Users\Tanju\Desktop\BozokYemek\BozokYemek\obj\Debug\BozokYemek.csproj.CoreCom
 C:\Users\Tanju\Desktop\BozokYemek\BozokYemek\obj\Debug\BozokYemek.csproj.CopyComplete
 C:\Users\Tanju\Desktop\BozokYemek\BozokYemek\obj\Debug\BozokYemek.dll
 C:\Users\Tanju\Desktop\BozokYemek\BozokYemek\obj\Debug\BozokYemek.pdb
+C:\Users\Tanju\Desktop\BozokYemek\BozokYemek\obj\Debug\BozokYemek.csprojAssemblyReference.cache

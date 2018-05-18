@@ -223,7 +223,6 @@
     <Content Include="AdminContext\fonts\Pe-icon-7-stroke.ttf" />
     <Content Include="AdminContext\fonts\Pe-icon-7-stroke.woff" />
     <Content Include="Grid.mvc.readme" />
-    <Content Include="App_Code\Bootstrap.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Resim\manti-1.png" />
     <Content Include="Resim\Profil\DarthVader.png" />
@@ -245,7 +244,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Code\ImageHelper.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
