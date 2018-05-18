@@ -7,7 +7,10 @@
     Layout = "~/Views/Shared/_LayoutGirisKayitOl.cshtml";
 }
 
-<h2>ProfilDuzenle</h2>
+<h2>
+    <span class="fa fa-edit"></span>
+    ProfilDuzenle
+</h2>
 
 @using (Html.BeginForm("ProfilDuzenle", "Kullanici", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {

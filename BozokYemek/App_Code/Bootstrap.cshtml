@@ -1,0 +1,13 @@
+﻿
+@helper Button(string id = "", string renk = "", string addtionalClass = "", string tip = "button", string icon = "", string yazi = "")
+{
+    <button id="@id" name="@id" type="@tip" class="btn btn-@renk @addtionalClass">
+        <span class="fa fa-@icon"></span>
+        @yazi
+    </button>
+}
+
+@helper Resim(string yol, string isim, string genislik)
+{
+    <img src="~/@yol" alt="@isim" height="@genislik" />
+}

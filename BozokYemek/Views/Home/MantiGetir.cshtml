@@ -1,7 +1,6 @@
 ﻿@using BozokYemek.Models.Index
 @model MantiGetirModel
 
-
 @{
     Layout = "~/Views/Shared/_LayoutMantiGetir.cshtml";
 }
@@ -12,5 +11,5 @@
 @Html.Partial("_PartialMantiYorum", new MantiYorumModel()
                                     {
                                         Yorum = Model.Yorum,
-                                        Manti=Model.Manti
+                                        Manti = Model.Manti
                                     })

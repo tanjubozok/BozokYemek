@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace BozokYemek.Controllers
@@ -23,10 +21,9 @@ namespace BozokYemek.Controllers
         public ActionResult MantiGetir(int id = 0)
         {
             var mantiListesi = databaseContext.Manti.Where(x => x.Silme == false).FirstOrDefault(x => x.Id == id);
-            if (mantiListesi == null)
-            {
-                return RedirectToAction("Index", "Home");
-            }
+
+            if (mantiListesi == null)            
+                return RedirectToAction("Index", "Home");            
 
             Models.Index.MantiGetirModel model = new Models.Index.MantiGetirModel()
             {

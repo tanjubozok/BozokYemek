@@ -51,6 +51,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="GridMvc, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Grid.Mvc.3.0.0\lib\net40\GridMvc.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -174,6 +177,9 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\Gridmvc.css" />
+    <Content Include="Content\gridmvc.datepicker.css" />
+    <Content Include="Content\gridmvc.datepicker.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Deytabeyz\BozokMantiModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -216,12 +222,19 @@
     <Content Include="AdminContext\fonts\Pe-icon-7-stroke.eot" />
     <Content Include="AdminContext\fonts\Pe-icon-7-stroke.ttf" />
     <Content Include="AdminContext\fonts\Pe-icon-7-stroke.woff" />
+    <Content Include="Grid.mvc.readme" />
+    <Content Include="App_Code\Bootstrap.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Resim\manti-1.png" />
     <Content Include="Resim\Profil\DarthVader.png" />
     <Content Include="Resim\manti.png" />
+    <Content Include="Scripts\bootstrap-datepicker.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\gridmvc.js" />
+    <Content Include="Scripts\gridmvc.lang.tr.js" />
+    <Content Include="Scripts\gridmvc.lang.ru.js" />
+    <Content Include="Scripts\gridmvc.min.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
@@ -232,6 +245,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Code\ImageHelper.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -314,6 +328,8 @@
     <Content Include="Views\Shared\_PartialMantilar.cshtml" />
     <Content Include="Views\Home\NavbarKategori.cshtml" />
     <Content Include="Views\Home\Slayt.cshtml" />
+    <Content Include="Views\Shared\_GridPager.cshtml" />
+    <Content Include="Views\Shared\_Grid.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

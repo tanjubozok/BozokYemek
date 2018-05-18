@@ -5,13 +5,18 @@
 @foreach (var item in Model)
 {
     <div class="welcome-single-slide">
-        <img src="~/@item.Resim" alt="" />
+        <img src="~/@item.Resim" alt="@item.Baslik" />
         <div class="project_title">
             <div class="post-date-commnents d-flex">
-                <a href="#">@item.EklemeTarihi</a>
+                <a href="#">
+                    @item.EklemeTarihi
+                </a>
             </div>
+
             <a href="@Url.Action("MantiGetir","Home", new { id=item.Id})">
-                <h5>@item.Baslik</h5>
+                <h5>
+                    @item.Baslik
+                </h5>
             </a>
         </div>
     </div>

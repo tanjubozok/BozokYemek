@@ -122,6 +122,7 @@ C:\Users\Tanju\Desktop\BozokYemek\BozokYemek\bin\roslyn\vbc.rsp
 C:\Users\Tanju\Desktop\BozokYemek\BozokYemek\bin\roslyn\VBCSCompiler.exe.config
 C:\Users\Tanju\Desktop\BozokYemek\BozokYemek\bin\EntityFramework.dll
 C:\Users\Tanju\Desktop\BozokYemek\BozokYemek\bin\EntityFramework.SqlServer.dll
+C:\Users\Tanju\Desktop\BozokYemek\BozokYemek\bin\GridMvc.dll
 C:\Users\Tanju\Desktop\BozokYemek\BozokYemek\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\Tanju\Desktop\BozokYemek\BozokYemek\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\Tanju\Desktop\BozokYemek\BozokYemek\bin\System.Web.Helpers.dll

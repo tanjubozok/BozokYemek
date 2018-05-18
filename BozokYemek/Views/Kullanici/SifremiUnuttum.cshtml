@@ -15,12 +15,16 @@
 
         <div class="col-12 col-md-7 item">
             <div class="contact-form wow fadeInUpBig" data-wow-delay="0.6s">
-                <h2 class="contact-form-title mb-30">
-                    <div class="text-center">Manti Sitesi !</div>
-                    <div class="text-center">sifremi unuttum sayfasina hosgeldiniz</div>
+                <h2 class="contact-form-title mb-30 text-center">
+
+                    <span class="text-warning">Manti Sitesi !</span>
+                    <span class="text-primary">sifremi unuttum sayfasina hosgeldiniz</span>
+
                     @if (ViewBag.SifremiUnuttumHata != null && string.IsNullOrEmpty((string)ViewBag.SifremiUnuttumHata) == false)
                     {
-                        <span class="text-danger">@ViewBag.SifremiUnuttumHata</span>
+                        <span class="text-danger">
+                            @ViewBag.SifremiUnuttumHata
+                        </span>
                     }
                 </h2>
 
@@ -48,9 +52,6 @@
                             <span class="fa fa-home"></span>
                             Anasayfa
                         </a>
-
-
-
 
                     </div>
                 }

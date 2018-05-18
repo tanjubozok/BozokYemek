@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 
 namespace BozokYemek.Models.Index
 {
@@ -9,7 +6,5 @@ namespace BozokYemek.Models.Index
     {
         public List<Deytabeyz.Manti> Manti { get; set; }
         public Deytabeyz.Kullanici Kullanici { get; set; }
-
-
     }
 }
