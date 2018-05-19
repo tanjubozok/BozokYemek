@@ -147,6 +147,17 @@ namespace BozokYemek.Controllers
             if (kullanici == null)
                 return RedirectToAction("Index", "Home");
 
+            if (GirisYapildimi())
+            {
+                ViewBag.KullaniciTipi = databaseContext.Kullanici
+                                                    .Where(x => x.Silme == false)
+                                                    .Select(x => new SelectListItem()
+                                                    {
+                                                        Text = x.KullaniciTipi.ToString(),
+                                                        Value = x.Id.ToString()
+                                                    }).ToList();
+            }
+
             Models.Kullanici.ProfilModel model = new Models.Kullanici.ProfilModel()
             {
                 Kullanici = kullanici
@@ -156,11 +167,13 @@ namespace BozokYemek.Controllers
 
         [HttpPost]
         [Filtre.OturumKontrol]
+        [ValidateAntiForgeryToken]
         public ActionResult ProfilDuzenle(Models.Kullanici.ProfilModel model)
         {
             try
             {
                 int id = KullaniciId();
+                var kullanici = databaseContext.Kullanici.Where(x => x.Silme == false).ToList();
                 var profilDuzenleme = databaseContext.Kullanici.Where(x => x.Silme == false).FirstOrDefault(x => x.Id == id);
                 profilDuzenleme.DegistirmeTarihi = DateTime.Now;
                 profilDuzenleme.Adi = model.Kullanici.Adi;
@@ -168,7 +181,7 @@ namespace BozokYemek.Controllers
                 profilDuzenleme.Sifre = model.Kullanici.Sifre;
                 profilDuzenleme.Biyografi = model.Kullanici.Biyografi;
                 profilDuzenleme.Silme = false;
-
+                
                 if (Request.Files != null && Request.Files.Count > 0)
                 {
                     var file = Request.Files[0];
@@ -198,7 +211,6 @@ namespace BozokYemek.Controllers
                 return View(model);
             }
         }
-
 
         public ActionResult ProfilSil(int id)
         {

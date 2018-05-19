@@ -1,10 +1,11 @@
-﻿@*@model BozokYemek.Deytabeyz.Kullanici*@
-@using BozokYemek.Models.Kullanici
+﻿@using BozokYemek.Models.Kullanici
 @model ProfilModel
 
 @{
     ViewBag.Title = "ProfilDuzenle";
     Layout = "~/Views/Shared/_LayoutGirisKayitOl.cshtml";
+
+    var adminKullanici = (BozokYemek.Deytabeyz.Kullanici)Session["GirisYapanKullanici"];
 }
 
 <h2>
@@ -20,6 +21,17 @@
 
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.Kullanici.Id)
+
+        @if (adminKullanici != null && (int)(adminKullanici.KullaniciTipi.Value) == 5 && ((List<SelectListItem>)ViewBag.KullaniciTipi) != null)
+        {
+            <div class="form-group">
+                @Html.Label("Kullanici Tipi", new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("KullaniciTipi", (List<SelectListItem>)ViewBag.KullaniciTipi, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Kullanici.Adi, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        }
 
         <div class="form-group">
             @Html.Label("Adi", new { @class = "control-label col-md-2" })
