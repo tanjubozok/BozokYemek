@@ -10,13 +10,12 @@
     @foreach (var item in Model)
     {
         <div class="single-populer-post d-flex">
-            <span class="fa fa-apple"></span>
+            <img src="~/Resim/manti-1.png" />
             <div class="post-content">
                 <a href="@Url.Action("KategoriMantiGetir","Home", new { id=item.Id})">
-                    <h6>
-                        @item.Adi
-                    </h6>
+                    <h6>@item.Adi (@item.Manti.Count)</h6>
                 </a>
+                <p>@item.EklemeTarihi</p>
             </div>
         </div>
     }

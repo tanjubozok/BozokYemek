@@ -21,7 +21,6 @@
     <script src="~/AdminContext/js/bootstrap/popper.min.js"></script>
     <script src="~/AdminContext/js/bootstrap/bootstrap.min.js"></script>
     <script src="~/AdminContext/js/others/plugins.js"></script>
-    <script src="~/ckeditor/ckeditor.js"></script>
 
 </head>
 
@@ -37,33 +36,33 @@
                         {
                             if ((int)(kullanici.KullaniciTipi) > 2)
                             {
-                                <a href="@Url.Action("Index", "Kategori")">
-                                    <i class="login" aria-hidden="true"></i><span class="fa fa-wrench"></span>
-                                    Admin
-                                </a>
+                        <a href="@Url.Action("Index", "Kategori")">
+                            <i class="login" aria-hidden="true"></i><span class="fa fa-wrench"></span>
+                            Admin
+                        </a>
                             }
 
-                            <a href="@Url.Action("Profil", "Kullanici")">
-                                <i class="login" aria-hidden="true"></i><span class="fa fa-user-circle"></span>
-                                @String.Format("{0} {1}", kullanici.Adi, kullanici.Soyadi)
-                            </a>
+                        <a href="@Url.Action("Profil", "Kullanici")">
+                            <i class="login" aria-hidden="true"></i><span class="fa fa-user-circle"></span>
+                            @String.Format("{0} {1}", kullanici.Adi, kullanici.Soyadi)
+                        </a>
 
-                            <a href="@Url.Action("Cikis", "Kullanici")">
-                                <i class="login" aria-hidden="true"></i><span class="fa fa-sign-out"></span>
-                                Cikis
-                            </a>
+                        <a href="@Url.Action("Cikis", "Kullanici")">
+                            <i class="login" aria-hidden="true"></i><span class="fa fa-sign-out"></span>
+                            Cikis
+                        </a>
 
                         }
                         else
                         {
-                            <a href="@Url.Action("Giris", "Kullanici")">
-                                <i class="login" aria-hidden="true"></i><span class="fa fa-sign-in"></span>
-                                Giris
-                            </a>
-                            <a href="@Url.Action("KayitOl", "Kullanici")">
-                                <i class="login" aria-hidden="true"></i><span class="fa fa-user-plus"></span>
-                                Kayit Ol
-                            </a>
+                        <a href="@Url.Action("Giris", "Kullanici")">
+                            <i class="login" aria-hidden="true"></i><span class="fa fa-sign-in"></span>
+                            Giris
+                        </a>
+                        <a href="@Url.Action("KayitOl", "Kullanici")">
+                            <i class="login" aria-hidden="true"></i><span class="fa fa-user-plus"></span>
+                            Kayit Ol
+                        </a>
                         }
 
                     </div>
@@ -120,7 +119,7 @@
                         <div class="collapse navbar-collapse justify-content-center" id="yummyfood-nav">
                             <ul class="navbar-nav" id="yummy-nav">
 
-                                <li class="nav-item active">
+                                <li class="nav-item">
                                     <a class="nav-link" href="@Url.Action("Index","Home")">
                                         <span class="fa fa-home"></span>
                                         Anasayfa
@@ -181,44 +180,6 @@
 
                 <div class="col-12 col-sm-8 col-md-6 col-lg-4">
                     <div class="blog-sidebar mt-5 mt-lg-0">
-                        @if (kullanici == null)
-                        {
-                            <div class="single-widget-area about-me-widget text-center">
-                                <div class="widget-title">
-                                    <h6>Hakkimda</h6>
-                                </div>
-                                <div class="about-me-widget-thumb">
-                                    <img src="img/about-img/1.jpg" alt="">
-                                </div>
-                                <h4 class="font-shadow-into-light">tanjubozok</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
-                            </div>
-                        }
-                        else
-                        {
-                            <div class="single-widget-area about-me-widget text-center">
-
-                                <div class="widget-title">
-                                    <h6>Hakkimda</h6>
-                                </div>
-
-                                <div class="about-me-widget-thumb">
-                                    <a href="@Url.Action("Profil","Kullanici")">
-                                        <img src="~/@kullanici.Resim">
-                                    </a>
-                                </div>
-
-                                <a href="@Url.Action("Profil","Kullanici")">
-                                    <h4 class="font-shadow-into-light">
-                                        @string.Format("{0} {1}", kullanici.Adi, kullanici.Soyadi)
-                                    </h4>
-                                </a>
-
-                                <p>@kullanici.Biyografi</p>
-                            </div>
-                        }
-
-
 
                         <div class="single-widget-area subscribe_widget text-center">
                             <div class="widget-title">
@@ -236,39 +197,14 @@
 
 
                         @{
-                            Html.RenderAction("Kategoriler", "Home");
-                        }
+                            //Html.RenderAction("Kategoriler", "Home");
 
+                            Html.RenderAction("SonMantilar", "Home");
 
+                            Html.RenderAction("SonYorumlar", "Home");
+                        }                   
 
-                        <div class="single-widget-area add-widget text-center">
-                            <div class="add-widget-area">
-                                <img src="~/AdminContext/img/sidebar-img/6.jpg" alt="" />
-                                <div class="add-text">
-                                    <div class="yummy-table">
-                                        <div class="yummy-table-cell">
-                                            <h2>Manti Kitap</h2>
-                                            <p>online oku!</p>
-                                            <a href="#" class="add-btn">satin al</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="single-widget-area newsletter-widget">
-                            <div class="widget-title text-center">
-                                <h6>Bulten</h6>
-                            </div>
-                            <p>Bültenimize abone olun, yeni güncellemeler, bilgi indirimi vb. Hakkında bildirim alın.</p>
-
-                            <div class="newsletter-form">
-                                <form action="#" method="post">
-                                    <input type="email" name="newsletter-email" id="email" placeholder="Your email">
-                                    <button type="submit"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
-                                </form>
-                            </div>
-                        </div>
+                        
 
                     </div>
                 </div>

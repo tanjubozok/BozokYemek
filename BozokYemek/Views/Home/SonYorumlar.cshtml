@@ -1,0 +1,25 @@
+﻿
+@model List<BozokYemek.Deytabeyz.Yorum>
+
+
+<div class="single-widget-area popular-post-widget">
+    <div class="widget-title text-center">
+        <h6>Son 5 Yorum</h6>
+    </div>
+
+    @foreach (var item in Model)
+    {
+        <div class="single-populer-post d-flex">
+            <img src="~/@item.Kullanici.Resim" alt="@string.Format("{0} {1}",item.Kullanici.Adi,item.Kullanici.Soyadi)">
+            <div class="post-content">
+                <a href="#">
+                    <h6>@item.Yazi</h6>
+                </a>
+                <p>@item.EklemeTarihi</p>
+            </div>
+        </div>
+    }
+
+
+</div>
+

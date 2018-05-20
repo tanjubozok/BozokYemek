@@ -1,0 +1,24 @@
+﻿
+@model List<BozokYemek.Deytabeyz.Manti>
+
+
+<div class="single-widget-area popular-post-widget">
+    <div class="widget-title text-center">
+        <h6>Son 5 Yemek</h6>
+    </div>
+
+    @foreach (var item in Model)
+    {
+        <div class="single-populer-post d-flex">
+            <img src="~/@item.Resim" alt="@item.Baslik">
+            <div class="post-content">
+                <a href="@Url.Action("MantiGetir","Home", new { id=item.Id})">
+                    <h6>@item.Baslik</h6>
+                </a>
+                <p>@item.EklemeTarihi</p>
+            </div>
+        </div>
+    }
+
+
+</div>

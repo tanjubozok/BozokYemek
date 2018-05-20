@@ -27,7 +27,7 @@
         <div class="form-group">
             @Html.Label("Aciklama", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextAreaFor(model => model.Aciklama, new { @class = "form-control"})
+                @Html.EditorFor(model => model.Aciklama, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Aciklama, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -59,7 +59,7 @@
         <div class="form-group">
             @Html.Label("Yemek Malzemeleri", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextAreaFor(model => model.Malzeme, new { @class = "form-control" })
+                @Html.TextBoxFor(model => model.Malzeme, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Malzeme, "", new { @class = "text-danger" })
             </div>
         </div>

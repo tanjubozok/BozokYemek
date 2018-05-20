@@ -22,8 +22,8 @@ namespace BozokYemek.Controllers
         {
             var mantiListesi = databaseContext.Manti.Where(x => x.Silme == false).FirstOrDefault(x => x.Id == id);
 
-            if (mantiListesi == null)            
-                return RedirectToAction("Index", "Home");            
+            if (mantiListesi == null)
+                return RedirectToAction("Index", "Home");
 
             Models.Index.MantiGetirModel model = new Models.Index.MantiGetirModel()
             {
@@ -99,6 +99,18 @@ namespace BozokYemek.Controllers
         {
             var slaytListesi = databaseContext.Manti.Where(x => x.Silme == false).OrderByDescending(x => x.EklemeTarihi).Take(6).ToList();
             return PartialView(slaytListesi);
+        }
+
+        public ActionResult SonYorumlar()
+        {
+            var sonYorumlar = databaseContext.Yorum.Where(x => x.Silme == false).OrderByDescending(x => x.EklemeTarihi).Take(5).ToList();
+            return PartialView(sonYorumlar);
+        }
+
+        public ActionResult SonMantilar()
+        {
+            var sonMantilar = databaseContext.Manti.Where(x => x.Silme == false).OrderByDescending(x => x.EklemeTarihi).Take(5).ToList();
+            return PartialView(sonMantilar);
         }
 
 

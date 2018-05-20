@@ -25,30 +25,30 @@
         col.Add(x => x.Kategori.Adi).Titled("Kategori").SetWidth(30);
         col.Add().Encoded(false).Sanitized(false).Titled("Resim").Filterable(false).RenderValueAs(c => @<div><img alt="Image" src='@c.Resim' width="36" )" /></div>).SetWidth(30);
 
-                    col.Add(x => x.Baslik).Titled("Yemek Adi");
-                    col.Add(x => x.Kullanici.Adi).Titled("Kim Ekledi").SetWidth(30);
+        col.Add(x => x.Baslik).Titled("Yemek Adi");
+        col.Add(x => x.Kullanici.Adi).Titled("Kim Ekledi").SetWidth(30);
 
-                    col.Add(x => x.Aciklama, true).Titled("Yemek Aciklama");
-                    col.Add(x => x.KacKisilik, true).Titled("Kac Kisilik");
-                    col.Add(x => x.HazirlamaSuresi, true).Titled("Hazirlama Suresi");
-                    col.Add(x => x.PisirmeSuresi, true).Titled("Pisirme Suresi");
-                    col.Add(x => x.Malzeme, true).Titled("Hazirlama Suresi");
+        col.Add(x => x.Aciklama, true).Titled("Yemek Aciklama");
+        col.Add(x => x.KacKisilik, true).Titled("Kac Kisilik");
+        col.Add(x => x.HazirlamaSuresi, true).Titled("Hazirlama Suresi");
+        col.Add(x => x.PisirmeSuresi, true).Titled("Pisirme Suresi");
+        col.Add(x => x.Malzeme, true).Titled("Hazirlama Suresi");
 
-                    col.Add().Encoded(false).Sanitized(false).RenderValueAs(html =>
+        col.Add().Encoded(false).Sanitized(false).RenderValueAs(html =>
         {
-                                    string htmlWarning = "<a href='/Manti/Edit/" + html.Id.ToString() + "' class='btn btn-warning btn-xs'><span class='fa fa-edit'></span></a>";
-                                    return MvcHtmlString.Create(htmlWarning);
+            string htmlWarning = "<a href='/Manti/Edit/" + html.Id.ToString() + "' class='btn btn-warning btn-xs'><span class='fa fa-edit'></span></a>";
+            return MvcHtmlString.Create(htmlWarning);
 
-                                }).SetWidth(30);
+        }).SetWidth(30);
 
-                    col.Add().Encoded(false).Sanitized(false).RenderValueAs(html =>
+        col.Add().Encoded(false).Sanitized(false).RenderValueAs(html =>
         {
-                                    string htmlWarning = "<a href='/Manti/Delete/" + html.Id.ToString() + "' class='btn btn-danger btn-xs'><span class='fa fa-trash'></span></a>";
-                                    return MvcHtmlString.Create(htmlWarning);
+            string htmlWarning = "<a href='/Manti/Delete/" + html.Id.ToString() + "' class='btn btn-danger btn-xs'><span class='fa fa-trash'></span></a>";
+            return MvcHtmlString.Create(htmlWarning);
 
-                                }).SetWidth(30);
+        }).SetWidth(30);
 
-                }).Filterable(true).Sortable(true).WithPaging(5).SetLanguage("tr")
+    }).Filterable(true).Sortable(true).WithPaging(5).SetLanguage("tr")
 
 </div>
 
@@ -64,6 +64,8 @@
             <span class="text-primary">Pisirme Suresi : </span><span id="pisirmeSuresi"></span> dakika<br />
             <span class="text-primary">Malzemeler : </span><span id="malzemeleri"></span><br />
             <span class="text-primary">Ne Zaman Eklendi : </span><span id="zamani"></span><br />
+            <span class="text-primary">Aciklama: </span><span id="aciklama"></span><br />
+
             @*<span class="text-primary">Kategorisi : </span><span id="kategorisi"></span><br />
                 <span class="text-primary">Kim Ekledi : </span><span id="kimEkledi"></span><br />
                 <span class="text-primary">Resim : </span><img src="~/Resim/Yemek/" alt="Alternate Text" id="resimi"/><br />*@
@@ -83,6 +85,7 @@
             $("#pisirmeSuresi").text(data.PisirmeSuresi);
             $("#malzemeleri").text(data.Malzeme);
             $("#zamani").text(data.EklemeTarihi);
+            $("#aciklama").text(data.Aciklama);
         });
     });
 

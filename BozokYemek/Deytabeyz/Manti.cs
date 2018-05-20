@@ -11,7 +11,9 @@ namespace BozokYemek.Deytabeyz
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+    using System.Web.Mvc;
+
     public partial class Manti
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,13 +21,18 @@ namespace BozokYemek.Deytabeyz
         {
             this.Yorum = new HashSet<Yorum>();
         }
-    
+
         public int Id { get; set; }
         public string Baslik { get; set; }
+
+        [AllowHtml]
+        [UIHint("tinymce_full_compressed")]
         public string Aciklama { get; set; }
+
         public Nullable<int> KacKisilik { get; set; }
         public Nullable<int> HazirlamaSuresi { get; set; }
         public Nullable<int> PisirmeSuresi { get; set; }
+
         public string Malzeme { get; set; }
         public Nullable<System.DateTime> EklemeTarihi { get; set; }
         public Nullable<System.DateTime> DegistirmeTarihi { get; set; }
@@ -33,7 +40,7 @@ namespace BozokYemek.Deytabeyz
         public Nullable<int> KategoriId { get; set; }
         public string Resim { get; set; }
         public Nullable<int> KullaniciId { get; set; }
-    
+
         public virtual Kategori Kategori { get; set; }
         public virtual Kullanici Kullanici { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
