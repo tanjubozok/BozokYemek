@@ -225,8 +225,20 @@
     <Content Include="Grid.mvc.readme" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Resim\manti-1.png" />
+    <Content Include="Resim\Profil\b9772db4-3099-4fcf-8260-b309cb5bc184.jpg" />
+    <Content Include="Resim\Profil\da116667-e996-4889-a51b-0c3537dc693c.jpg" />
     <Content Include="Resim\Profil\DarthVader.png" />
     <Content Include="Resim\manti.png" />
+    <Content Include="Resim\Yemek\131843a0-5fad-43e9-952b-06dd9598d96e.jpg" />
+    <Content Include="Resim\Yemek\165fc8f7-d0ed-43a0-8a88-59a284604cfe.jpg" />
+    <Content Include="Resim\Yemek\716ff67c-333a-4e4d-86ee-703b776bfe84.jpg" />
+    <Content Include="Resim\Yemek\7a3e2817-b91b-436e-b9e8-a376db939a21.jpg" />
+    <Content Include="Resim\Yemek\9115b53e-6856-4ac6-b45f-472208057bde.jpg" />
+    <Content Include="Resim\Yemek\9e00ba43-6ea2-4458-9751-b96b4bb2de2e.jpg" />
+    <Content Include="Resim\Yemek\a2a7c699-97a7-437f-8755-a77155cd2386.jpg" />
+    <Content Include="Resim\Yemek\d7fbfc4e-6863-4c33-b6e4-effbd38592b6.jpg" />
+    <Content Include="Resim\Yemek\da3026f9-86cf-43b6-9ba6-0509b853751b.jpg" />
+    <Content Include="Resim\Yemek\f661925c-af6e-49fb-bda1-6fca72ca67b9.jpg" />
     <Content Include="Scripts\bootstrap-datepicker.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -238,6 +250,8 @@
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -337,7 +351,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Resim\Yemek\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
