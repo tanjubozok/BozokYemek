@@ -140,7 +140,6 @@ C:\Users\Tanju\Desktop\BozokYemek\BozokYemek\bin\System.Web.WebPages.xml
 C:\Users\Tanju\Desktop\BozokYemek\BozokYemek\bin\System.Web.WebPages.Deployment.xml
 C:\Users\Tanju\Desktop\BozokYemek\BozokYemek\bin\System.Web.WebPages.Razor.xml
 C:\Users\Tanju\Desktop\BozokYemek\BozokYemek\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\Tanju\Desktop\BozokYemek\BozokYemek\obj\Debug\BozokYemek.csprojAssemblyReference.cache
 C:\Users\Tanju\Desktop\BozokYemek\BozokYemek\obj\Debug\BozokYemek.csproj.CoreCompileInputs.cache
 C:\Users\Tanju\Desktop\BozokYemek\BozokYemek\obj\Debug\BozokYemek.csproj.CopyComplete
 C:\Users\Tanju\Desktop\BozokYemek\BozokYemek\obj\Debug\BozokYemek.dll

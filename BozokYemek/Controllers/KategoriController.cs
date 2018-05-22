@@ -29,12 +29,14 @@ namespace BozokYemek.Controllers
                 kategoriListesi.Aciklama = kategori.Aciklama;
                 kategoriListesi.DegistirmeTarihi = DateTime.Now;
                 kategori.Silme = false;
+                TempData["KategoriGuncelleme"] = "Guncelleme basarili";
             }
             else
             {
                 kategori.EklemeTarihi = DateTime.Now;
                 kategori.Silme = false;
                 databaseContext.Entry(kategori).State = System.Data.Entity.EntityState.Added;
+                TempData["KategoriEkleme"] = "Ekleme basarili";
             }
             databaseContext.SaveChanges();
             return RedirectToAction("Index", "Kategori");
@@ -45,6 +47,7 @@ namespace BozokYemek.Controllers
             var kategoriSilme = databaseContext.Kategori.FirstOrDefault(x => x.Id == id);
             kategoriSilme.Silme = true;
             databaseContext.SaveChanges();
+            TempData["KategoriSilme"] = "silme basarili";
             return RedirectToAction("Index", "Kategori");
         }
     }

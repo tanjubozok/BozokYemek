@@ -112,7 +112,5 @@ namespace BozokYemek.Controllers
             var sonMantilar = databaseContext.Manti.Where(x => x.Silme == false).OrderByDescending(x => x.EklemeTarihi).Take(5).ToList();
             return PartialView(sonMantilar);
         }
-
-
     }
 }

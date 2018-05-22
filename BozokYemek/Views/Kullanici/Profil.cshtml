@@ -63,7 +63,7 @@
                 <span class="fa fa-edit"></span>
                 Düzenle
             </a>
-            <button type="button" onclick="ProfilSil('@Url.Action("ProfilSil","Kullanici", new { id=kullanici.Id})')" class="btn btn-danger">
+            <button type="button" onclick="#" class="btn btn-danger">
                 <span class="fa fa-trash"></span>
                 Sil
             </button>
@@ -72,10 +72,19 @@
     </div>
 }
 
-<script>
-    function ProfilSil(url) {
-        if (confirm("profili silmek istediginize emin misiniz?")) {
-            location.href = url;
+@section scripts{
+    <script>
+
+         $(function () {
+            var successMessage = '@TempData["ProfilGuncelleme"]'
+             if (successMessage != '')
+                 alertify.success(successMessage);
+        });
+
+        function Delete(id) {
+            alertify.confirm('Manti Kategori','silmek istediginize emin misini ?',function(){
+                window.location.href  = '@Url.Action("ProfilSil","Kullanici")/'+id;
+            },null );
         }
-    }
-</script>
+    </script>
+}

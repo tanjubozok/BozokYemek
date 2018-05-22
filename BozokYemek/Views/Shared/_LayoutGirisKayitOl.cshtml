@@ -15,12 +15,15 @@
     <link href="~/AdminContext/style.css" rel="stylesheet" />
     <link href="~/AdminContext/css/responsive/responsive.css" rel="stylesheet" />
     <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/alertifyjs/alertify.min.css" rel="stylesheet" />
+    <link href="~/Content/alertifyjs/themes/default.min.css" rel="stylesheet" />
 
     <script src="~/AdminContext/js/jquery/jquery-2.2.4.min.js"></script>
     <script src="~/AdminContext/js/bootstrap/popper.min.js"></script>
     <script src="~/AdminContext/js/bootstrap/bootstrap.min.js"></script>
     <script src="~/AdminContext/js/others/plugins.js"></script>
     <script src="~/AdminContext/js/active.js"></script>
+    <script src="~/Scripts/alertify.min.js"></script>
 
 </head>
 
@@ -177,3 +180,5 @@
 
 </body>
 </html>
+
+@RenderSection("scripts", required: false)

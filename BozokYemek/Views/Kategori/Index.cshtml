@@ -36,7 +36,7 @@
 
             <td>
                 <a href="@Url.Action("Edit","Kategori", new { id=item.Id})" class="btn btn-warning btn-xs"><span class="fa fa-edit"></span></a>
-                <button type="button" onclick="KategoriSil('@Url.Action("Delete", "Kategori", new { id = item.Id })')" class="btn btn-danger btn-xs">
+                <button type="button" onclick="Delete(@item.Id)" class="btn btn-danger btn-xs">
                     <span class="fa fa-trash"></span>
                 </button>
 
@@ -46,11 +46,30 @@
 </table>
 
 
+@section scripts{
+    <script>
+        $(function () {
+            var successMessage = '@TempData["KategoriEkleme"]'
+            if (successMessage != '')
+                alertify.success(successMessage);
+        });
 
-<script>
-    function KategoriSil(url) {
-        if (confirm("silmek istediginize emin misiniz?")) {
-            location.href = url;
+         $(function () {
+            var successMessage = '@TempData["KategoriGuncelleme"]'
+             if (successMessage != '')
+                 alertify.success(successMessage);
+        });
+
+         $(function () {
+            var successMessage = '@TempData["KategoriSilme"]'
+             if (successMessage != '')
+                 alertify.error(successMessage);
+        });
+
+        function Delete(id) {
+            alertify.confirm('Manti Kategori','silmek istediginize emin misini ?',function(){
+                window.location.href  = '@Url.Action("Delete","Kategori")/'+id;
+            },null );
         }
-    }
-</script>
+    </script>
+}

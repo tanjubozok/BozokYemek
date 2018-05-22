@@ -24,6 +24,8 @@ namespace BozokYemek.Controllers
                 Value = x.Id.ToString()
             }).ToList();
 
+            
+
             ViewBag.KategoriGonder = kategoriListesi;
             return View(mantiListesi);
 
@@ -67,6 +69,8 @@ namespace BozokYemek.Controllers
                     {
                         mantiListesi.Resim = mantiImageNamePath;
                     }
+                    TempData["MantiGuncelleme"] = "Guncelleme basarili";
+
                 }
                 else
                 {
@@ -75,6 +79,8 @@ namespace BozokYemek.Controllers
                     manti.KullaniciId = 1;
                     manti.Resim = mantiImageNamePath;
                     databaseContext.Entry(manti).State = System.Data.Entity.EntityState.Added;
+                    TempData["MantiEkleme"] = "Ekleme basarili";
+
                 }
             }
             databaseContext.SaveChanges();
@@ -86,6 +92,7 @@ namespace BozokYemek.Controllers
         {
             var mantiSil = databaseContext.Manti.Where(x => x.Silme == false).FirstOrDefault(x => x.Id == id);
             mantiSil.Silme = true;
+            TempData["MantiSilme"] = "silme basarili";
             databaseContext.SaveChanges();
             return RedirectToAction("Index", "Manti");
         }

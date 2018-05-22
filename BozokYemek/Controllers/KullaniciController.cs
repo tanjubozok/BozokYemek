@@ -79,7 +79,7 @@ namespace BozokYemek.Controllers
 
         [HttpGet]
         public ActionResult Cikis()
-        {
+        {            
             if (Session["GirisYapanKullanici"] != null)
             {
                 Session.Clear();
@@ -196,6 +196,7 @@ namespace BozokYemek.Controllers
                         profilDuzenleme.Resim = filePath;
                     }
                 }
+                TempData["ProfilGuncelleme"] = "Guncelleme basarili";
                 databaseContext.SaveChanges();
                 return RedirectToAction("Profil", "Kullanici");
             }
